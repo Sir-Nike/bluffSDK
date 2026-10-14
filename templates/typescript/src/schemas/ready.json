@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["type","request_id","agent_state"],"properties":{"type":{"const":"ready"},"request_id":{"type":"string","minLength":1},"agent_state":true},"additionalProperties":false}

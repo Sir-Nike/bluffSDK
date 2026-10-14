@@ -1,0 +1,1 @@
+{"game":"triad-bluff-v1","protocol_version":"1.0","entrypoint":["node","dist/agent.js"],"compute":{"cpu":1,"gpu":false}}

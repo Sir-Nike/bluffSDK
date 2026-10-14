@@ -1,0 +1,18 @@
+{
+  "previous": {
+    "games": 24,
+    "wins": 3,
+    "mean_points": 2.6666666666666665,
+    "faults": 0,
+    "max_checkpoint_bytes": 193,
+    "max_strategy_seconds": 5.3249999837134965e-05
+  },
+  "improved": {
+    "games": 24,
+    "wins": 11,
+    "mean_points": 3.8333333333333335,
+    "faults": 0,
+    "max_checkpoint_bytes": 190,
+    "max_strategy_seconds": 5.4707999879610725e-05
+  }
+}

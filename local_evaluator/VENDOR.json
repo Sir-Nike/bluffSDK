@@ -1,0 +1,81 @@
+{
+  "game": "bluff",
+  "source_revision": "b9222e2c5d3e542a7bfa2fbdf97c17e0addb2337",
+  "files": {
+    "__init__.py": {
+      "source_sha256": "fa91b42323784bcbdc84cac8e0d803f64093c77c0d02860fc684521ed1705394",
+      "bundled_sha256": "fa91b42323784bcbdc84cac8e0d803f64093c77c0d02860fc684521ed1705394"
+    },
+    "cards.py": {
+      "source_sha256": "186620fc5cd5453bca386c132b745d4d270c48b1a0a9fbacd997d91f078c24e3",
+      "bundled_sha256": "186620fc5cd5453bca386c132b745d4d270c48b1a0a9fbacd997d91f078c24e3"
+    },
+    "engine.py": {
+      "source_sha256": "4baf88d264e72382290b7d8904611c671cbea959bde42b49497e7c5b3b966759",
+      "bundled_sha256": "4baf88d264e72382290b7d8904611c671cbea959bde42b49497e7c5b3b966759"
+    },
+    "protocol.py": {
+      "source_sha256": "c6b7a2ba21061ec31f8e74d65fdfa75eaace7773b63ce96e1bbf0b0076c7300b",
+      "bundled_sha256": "c6b7a2ba21061ec31f8e74d65fdfa75eaace7773b63ce96e1bbf0b0076c7300b"
+    },
+    "baselines.py": {
+      "source_sha256": "2df94567e35d4a5da48a5a5e5a0944cac643c2265161110a1ce53bb156f48382",
+      "bundled_sha256": "2df94567e35d4a5da48a5a5e5a0944cac643c2265161110a1ce53bb156f48382"
+    },
+    "simulator.py": {
+      "source_sha256": "0866371893d7933d578d70250017aa9a6f2cb2fa1b137f167745299303a378d0",
+      "bundled_sha256": "0866371893d7933d578d70250017aa9a6f2cb2fa1b137f167745299303a378d0"
+    },
+    "local_runner.py": {
+      "source_sha256": "e969a60882eb6975375ed9774cb60bf39b81f7f7401aca1a42b748a9d6157609",
+      "bundled_sha256": "4d03ef12848c9b1a991f07cebb24a95484674ad020c14474041082c7de6cc98d"
+    },
+    "scoring.py": {
+      "source_sha256": "ee597e11de758af33b66ac25c59d7d750682f8ed270556e9aae38bf5289c37c4",
+      "bundled_sha256": "ee597e11de758af33b66ac25c59d7d750682f8ed270556e9aae38bf5289c37c4"
+    },
+    "schemas/act.json": {
+      "source_sha256": "fcf44066cf661dd9a19d6a7d49aa8fa83e762ac6490ecc1b6257a1a51fe63f97",
+      "bundled_sha256": "fcf44066cf661dd9a19d6a7d49aa8fa83e762ac6490ecc1b6257a1a51fe63f97"
+    },
+    "schemas/action.json": {
+      "source_sha256": "0d4cc05cc2009cc8821aac1c94e7be988170d830f66f1700aa3dd06f13a5daf8",
+      "bundled_sha256": "0d4cc05cc2009cc8821aac1c94e7be988170d830f66f1700aa3dd06f13a5daf8"
+    },
+    "schemas/card.json": {
+      "source_sha256": "c2f4790636eee58093024ea894ac30cdf24a7aa8be2e1028891227e88bd2d928",
+      "bundled_sha256": "c2f4790636eee58093024ea894ac30cdf24a7aa8be2e1028891227e88bd2d928"
+    },
+    "schemas/done.json": {
+      "source_sha256": "ae753868a3344b03e4d591280cc25f104db2cb1281a0caf310dc5ec84a6ff7c0",
+      "bundled_sha256": "ae753868a3344b03e4d591280cc25f104db2cb1281a0caf310dc5ec84a6ff7c0"
+    },
+    "schemas/game_over.json": {
+      "source_sha256": "8808979367539ad35810c4231a58d060cb50f1cd2434cfcfbad35458584939a5",
+      "bundled_sha256": "8808979367539ad35810c4231a58d060cb50f1cd2434cfcfbad35458584939a5"
+    },
+    "schemas/initialize.json": {
+      "source_sha256": "160d463b6698ef52425056a08e5fde9709465c836283b77a387ac723ee54a303",
+      "bundled_sha256": "160d463b6698ef52425056a08e5fde9709465c836283b77a387ac723ee54a303"
+    },
+    "schemas/observation.json": {
+      "source_sha256": "f7f4222e66b31b846182362bd2ffacf908cba87bcb22a852f75aa55339cfa0e0",
+      "bundled_sha256": "f7f4222e66b31b846182362bd2ffacf908cba87bcb22a852f75aa55339cfa0e0"
+    },
+    "schemas/outcome.json": {
+      "source_sha256": "9afe2b03363e210f0e0ec57739fd8439000e5c2255ec455b2ebfcd32d056f601",
+      "bundled_sha256": "9afe2b03363e210f0e0ec57739fd8439000e5c2255ec455b2ebfcd32d056f601"
+    },
+    "schemas/player_action.json": {
+      "source_sha256": "844f327b957c238ddeaa3169a9d1ecabcfc97c912a5fe535ee3efb0e2aecab09",
+      "bundled_sha256": "844f327b957c238ddeaa3169a9d1ecabcfc97c912a5fe535ee3efb0e2aecab09"
+    },
+    "schemas/ready.json": {
+      "source_sha256": "62cd4feada640f41c44f88724180d65b0f1df06025562898e11351afe6e7c84a",
+      "bundled_sha256": "62cd4feada640f41c44f88724180d65b0f1df06025562898e11351afe6e7c84a"
+    }
+  },
+  "adaptations": [
+    "local_runner.py: HostAdmission import is type-checking only"
+  ]
+}

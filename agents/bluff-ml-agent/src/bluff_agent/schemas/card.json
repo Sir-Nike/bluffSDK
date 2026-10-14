@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://triad-bluff.local/schemas/card.json","type":"object","required":["rank","suit"],"properties":{"rank":{"type":"string","enum":["A","2","3","4","5","6","7","8","9","10","J","Q","K"]},"suit":{"type":"string","enum":["clubs","diamonds","hearts","spades"]}},"additionalProperties":false}

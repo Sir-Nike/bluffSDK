@@ -1,0 +1,9 @@
+services:
+  bluff-agent:
+    build: .
+    image: bluff-agent:latest
+    stdin_open: true
+    tty: false
+    environment:
+      PYTHONUNBUFFERED: "1"
+      PYTHONDONTWRITEBYTECODE: "1"

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["type","request_id","action","agent_state"],"properties":{"type":{"const":"action"},"request_id":{"type":"string","minLength":1},"action":{"$ref":"player_action.json"},"agent_state":true},"additionalProperties":false}

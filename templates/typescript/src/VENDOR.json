@@ -1,0 +1,19 @@
+{
+  "source_revision": "event-runtime-v2",
+  "source": "Bluff/src/triad_bluff",
+  "game": "triad-bluff-v1",
+  "protocol_sha256": "sha256:e9324dd18ea3767801322b5fd0f16590f3e1b4f62c87148475a7ad339bdb72d7",
+  "schema_sha256": {
+    "act": "sha256:fcf44066cf661dd9a19d6a7d49aa8fa83e762ac6490ecc1b6257a1a51fe63f97",
+    "action": "sha256:0d4cc05cc2009cc8821aac1c94e7be988170d830f66f1700aa3dd06f13a5daf8",
+    "card": "sha256:c2f4790636eee58093024ea894ac30cdf24a7aa8be2e1028891227e88bd2d928",
+    "done": "sha256:ae753868a3344b03e4d591280cc25f104db2cb1281a0caf310dc5ec84a6ff7c0",
+    "game_over": "sha256:8808979367539ad35810c4231a58d060cb50f1cd2434cfcfbad35458584939a5",
+    "initialize": "sha256:160d463b6698ef52425056a08e5fde9709465c836283b77a387ac723ee54a303",
+    "observation": "sha256:f7f4222e66b31b846182362bd2ffacf908cba87bcb22a852f75aa55339cfa0e0",
+    "outcome": "sha256:9afe2b03363e210f0e0ec57739fd8439000e5c2255ec455b2ebfcd32d056f601",
+    "player_action": "sha256:844f327b957c238ddeaa3169a9d1ecabcfc97c912a5fe535ee3efb0e2aecab09",
+    "ready": "sha256:62cd4feada640f41c44f88724180d65b0f1df06025562898e11351afe6e7c84a"
+  },
+  "adapter_lifecycle": "warm-games-v1: game_over/done returns to initialize; stdin EOF ends execution"
+}

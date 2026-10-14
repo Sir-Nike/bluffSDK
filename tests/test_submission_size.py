@@ -1,14 +1,14 @@
 """Submission-size checks use Git's file selection and real asset sizes."""
-import importlib.util
 import gzip
+import importlib.util
 import io
 import json
-import tarfile
-from pathlib import Path
 import subprocess
 import sys
+import tarfile
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 SCRIPT = Path(__file__).resolve().parents[1] / "tools/check_submission_size.py"
@@ -58,7 +58,7 @@ class SubmissionSizeTests(unittest.TestCase):
         with (self.repo / "weights.bin").open("r+b") as stream:
             stream.truncate(checker.MAX_BYTES + 1)
         self.assertFalse(checker.inventory(self.repo)["ok"])
-        result = subprocess.run([sys.executable, str(SCRIPT), "--repo", str(self.repo), "--json"], capture_output=True, text=True)
+        result = subprocess.run([sys.executable, str(SCRIPT), "--repo", str(self.repo), "--json"], capture_output=True, text=True, check=False)
         self.assertEqual(result.returncode, 1)
         self.assertEqual(json.loads(result.stdout)["total_bytes"], checker.MAX_BYTES + 1)
 
@@ -94,9 +94,23 @@ class SubmissionSizeTests(unittest.TestCase):
     def test_image_size_includes_installed_dependencies(self):
         with patch.object(checker.subprocess, "check_output", return_value=json.dumps([{"Size": checker.MAX_BYTES + 1}]).encode()):
             self.assertEqual(checker.image_size("agent:local"), checker.MAX_BYTES + 1)
-        with patch.object(checker.subprocess, "check_output", return_value=b'[{}]'):
-            with self.assertRaises(ValueError):
+        with patch.object(checker.subprocess, "check_output", return_value=b'[{}]'), self.assertRaises(ValueError):
                 checker.image_size("agent:local")
+
+    def test_approved_base_exemption_is_reported_without_charging_full_image(self):
+        (self.repo / "agent.py").write_text("pass")
+        base = "example/base@sha256:" + "a" * 64
+        image = {"reference": "agent:local", "approved_base": base,
+                 "total_bytes": 5 * 1024**3, "participant_bytes": 100,
+                 "exempt_base_bytes": 5 * 1024**3 - 100, "ok": True}
+        output = io.StringIO()
+        with patch.object(sys, "argv", [str(SCRIPT), "--repo", str(self.repo),
+                                        "--image", "agent:local", "--approved-base", base, "--json"]), \
+             patch.object(checker, "measure_submission_image", return_value=image) as measure, \
+             patch("sys.stdout", output):
+            self.assertEqual(checker.main(), 0)
+        self.assertTrue(json.loads(output.getvalue())["ok"])
+        measure.assert_called_once_with("agent:local", [base], limit_bytes=checker.MAX_BYTES)
 
     def test_compressed_image_layers_cannot_bypass_size_limit(self):
         def exported_image(payload):

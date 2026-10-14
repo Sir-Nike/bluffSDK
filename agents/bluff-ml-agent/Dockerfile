@@ -7,7 +7,7 @@ ARG UV_CONCURRENT_DOWNLOADS=1
 ARG UV_HTTP_TIMEOUT=300
 COPY pyproject.toml uv.lock ./
 RUN --mount=type=bind,from=ml_wheels,target=/wheels \
-    --mount=type=cache,id=bluff-ml-cu124-uv,target=/root/.cache/uv,sharing=locked \
+    --mount=type=cache,id=bluff-ml-cu128-uv,target=/root/.cache/uv,sharing=locked \
     if [ -f /wheels/SHA256SUMS.json ]; then \
       uv export --locked --no-dev --no-emit-project --output-file /tmp/requirements.txt && \
       uv venv /app/.venv && \

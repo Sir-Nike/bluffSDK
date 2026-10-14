@@ -168,9 +168,38 @@ The accepted scoring outcome is the normal placement/turn-cap result. Faults
 remain organizer diagnostics and are not shown to opponents. Infrastructure
 failures abort the attempt without accepting a score; an operator may resume.
 
-## Complete submission size
+## Shared organizer dependency base
 
-The complete submission and final image must each fit 1.5 GiB. Check Git-selected
-source/assets and the built image using
-`uv run --locked python tools/check_submission_size.py --revision HEAD --image YOUR_IMAGE`.
-See [resource limits](resource-limits.md) for ignore rules, Git LFS, and exact bytes.
+For events with approved dependency bases, use `Dockerfile.gpu.shared`. Its
+default is the official PyTorch 2.7.1/CUDA 12.8/cuDNN 9 runtime pinned by digest
+in `examples/approved-bases.json`. No custom registry hosting or participant
+PyTorch/CUDA installation is needed. Organizers can supply another approved
+base digest. Do not reinstall the shared runtime.
+
+```sh
+docker build --platform linux/amd64 -f Dockerfile.gpu.shared \
+  --build-arg BLUFF_DEPENDENCY_BASE=ORGANIZER_REPOSITORY@sha256:ACTUAL_DIGEST \
+  -t YOUR_REGISTRY/YOUR_TEAM:submission .
+```
+
+The base digest is different from your final submission digest: publish and
+submit your finished participant image as usual. Extra approved dependencies
+must be incorporated into a new organizer base to receive an exemption.
+Packages installed after the base count toward the participant layer allowance.
+Local `--approved-base` checks do not grant organizer approval.
+
+## Code/assets size and dependency exemption
+
+Code and assets, including inference weights, must fit 1.5 GiB. The evaluator
+can exclude exact layers from an organizer-approved dependency base. All layers
+added after that base count, including generated/downloaded model assets and
+extra packages. The complete image can therefore exceed 1.5 GiB.
+
+```sh
+uv run --locked python tools/check_submission_size.py --revision HEAD \
+  --image YOUR_IMAGE \
+  --approved-base ORGANIZER_REPOSITORY@sha256:ACTUAL_DIGEST
+```
+
+Without an organizer-approved base list, legacy whole-image limits remain in
+force. See [resource limits](resource-limits.md) for exact accounting and Git LFS.

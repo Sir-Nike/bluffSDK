@@ -16,7 +16,7 @@ to fail. JSON checkpoints report the device, framework/CUDA versions, weights
 hash, self-test result and inference count. Model weights are loaded from the
 image, not serialized in checkpoints.
 
-Pinned dependency: PyTorch 2.6.0 with CUDA 12.4 from the official PyTorch wheel
+Pinned dependency: PyTorch 2.7.1 with CUDA 12.8 from the official PyTorch wheel
 index, recorded in this fixture's `uv.lock`. Driver compatibility is verified by the real container test. The image
 requests one CPU, 1 GiB RAM, 128 MiB scratch and 1 GiB GPU memory. Exclusive mode
 reserves the physical device; shared mode reserves declared bytes and an agent

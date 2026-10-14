@@ -1,9 +1,9 @@
 # Laptop Docker and GPU testing
 
 The RTX 5060 Laptop GPU requires a PyTorch build supporting Blackwell (sm_120).
-The event CUDA 12.4 / PyTorch 2.6 fixtures fail a real GPU calculation on this laptop.
-The separate laptop build pins PyTorch 2.7.1+cu128 and locks every dependency.
-The existing event Dockerfiles and CPU dependencies remain unchanged.
+Both the default ML fixture and the laptop build pin PyTorch 2.7.1+cu128
+and lock their dependencies. The shared GPU template uses the approved official
+PyTorch 2.7.1 / CUDA 12.8 runtime digest.
 
 Official compatibility reference: https://pytorch.org/blog/pytorch-2-7/
 
